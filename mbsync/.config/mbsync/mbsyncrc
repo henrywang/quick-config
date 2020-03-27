@@ -1,0 +1,201 @@
+## GLOBAL SETTINGS ##
+
+## Red Hat Zimbra ##
+IMAPAccount redhat
+Host mail.corp.redhat.com
+User xiaofwan@redhat.com
+AuthMechs GSSAPI
+SSLType IMAPS
+CertificateFile /etc/pki/ca-trust/source/anchors/Red_Hat_IT_Root_CA.crt
+
+IMAPStore redhat-remote
+Account redhat
+
+MailDirStore redhat-local
+Path ~/.local/share/mail/redhat/
+Inbox ~/.local/share/mail/redhat/Inbox
+Flatten .
+
+Channel redhat-inbox
+Master :redhat-remote:"Inbox"
+Slave :redhat-local:Inbox
+
+Channel redhat-sent
+Master :redhat-remote:"Sent"
+Slave :redhat-local:Sent
+
+Channel redhat-drafts
+Master :redhat-remote:"Drafts"
+Slave :redhat-local:Drafts
+
+Channel redhat-junk
+Master :redhat-remote:"Junk"
+Slave :redhat-local:Junk
+
+Channel redhat-trash
+Master :redhat-remote:"Trash"
+Slave :redhat-local:Trash
+
+Channel redhat-3rd-qe-list
+Master :redhat-remote:"3rd-qe-list"
+Slave :redhat-local:3rd-qe-list
+
+Channel redhat-announce-list
+Master :redhat-remote:"announce-list"
+Slave :redhat-local:announce-list
+
+Channel redhat-apac-list
+Master :redhat-remote:"apac-list"
+Slave :redhat-local:apac-list
+
+Channel redhat-bbs
+Master :redhat-remote:"BBS"
+Slave :redhat-local:BBS
+
+Channel redhat-beaker-user-list
+Master :redhat-remote:"beaker-user-list"
+Slave :redhat-local:beaker-user-list
+
+Channel redhat-beijing-virt-qe
+Master :redhat-remote:"beijing-virt-qe"
+Slave :redhat-local:beijing-virt-qe
+
+Channel redhat-bug-needinfo
+Master :redhat-remote:"bug-needinfo"
+Slave :redhat-local:bug-needinfo
+
+Channel redhat-bugzilla
+Master :redhat-remote:"Bugzilla"
+Slave :redhat-local:Bugzilla
+
+Channel redhat-china-list
+Master :redhat-remote:"china-list"
+Slave :redhat-local:china-list
+
+Channel redhat-ci-infra-list
+Master :redhat-remote:"ci-infra-list"
+Slave :redhat-local:ci-infra-list
+
+Channel redhat-composer
+Master :redhat-remote:"Composer"
+Slave :redhat-local:Composer
+
+Channel redhat-eng-china
+Master :redhat-remote:"eng-china"
+Slave :redhat-local:eng-china
+
+Channel redhat-eng-china-leave-list
+Master :redhat-remote:"eng-china-leave-list"
+Slave :redhat-local:eng-china-leave-list
+
+Channel redhat-jira
+Master :redhat-remote:"JIRA"
+Slave :redhat-local:JIRA
+
+Channel redhat-jira-pnt
+Master :redhat-remote:"JIRA-PNT"
+Slave :redhat-local:JIRA-PNT
+
+Channel redhat-memo-list
+Master :redhat-remote:"memo-list"
+Slave :redhat-local:memo-list
+
+Channel redhat-mojo
+Master :redhat-remote:"mojo"
+Slave :redhat-local:mojo
+
+Channel redhat-payroll
+Master :redhat-remote:"Payroll"
+Slave :redhat-local:Payroll
+
+Channel redhat-platform-ci
+Master :redhat-remote:"Platform-CI"
+Slave :redhat-local:Platform-CI
+
+Channel redhat-platform-qe
+Master :redhat-remote:"Platform-QE"
+Slave :redhat-local:Platform-QE
+
+Channel redhat-polarion
+Master :redhat-remote:"Polarion"
+Slave :redhat-local:Polarion
+
+Channel redhat-polarion-users
+Master :redhat-remote:"polarion-users"
+Slave :redhat-local:polarion-users
+
+Channel redhat-qe-dept-list
+Master :redhat-remote:"qe-dept-list"
+Slave :redhat-local:qe-dept-list
+
+Channel redhat-qe-extended-staff
+Master :redhat-remote:"qe-extended-staff"
+Slave :redhat-local:qe-extended-staff
+
+Channel redhat-RedHat-Microsoft
+Master :redhat-remote:"redhat-microsoft"
+Slave :redhat-local:redhat-microsoft
+
+Channel redhat-s1-bug-review
+Master :redhat-remote:"s1-bug-review"
+Slave :redhat-local:s1-bug-review
+
+Channel redhat-s1-qe-list
+Master :redhat-remote:"s1-qe-list"
+Slave :redhat-local:s1-qe-list
+
+Channel redhat-service-desk
+Master :redhat-remote:"service desk"
+Slave :redhat-local:service-desk
+
+Channel redhat-virt-devel
+Master :redhat-remote:"virt-devel"
+Slave :redhat-local:virt-devel
+
+Channel redhat-virt-qe-list
+Master :redhat-remote:"virt-qe-list"
+Slave :redhat-local:virt-qe-list
+
+# Save the synchronization state files in the relevant directory
+SyncState *
+# Automatically create missing mailboxes, both locally and on the server
+Create Both
+# Automatically delete messages on either side if they are found deleted on the other side
+Expunge Both
+
+Group redhat
+Channel redhat-inbox
+Channel redhat-sent
+Channel redhat-drafts
+Channel redhat-junk
+Channel redhat-trash
+Channel redhat-3rd-qe-list
+Channel redhat-announce-list
+Channel redhat-apac-list
+Channel redhat-bbs
+Channel redhat-beaker-user-list
+Channel redhat-beijing-virt-qe
+Channel redhat-bug-needinfo
+Channel redhat-bugzilla
+Channel redhat-china-list
+Channel redhat-ci-infra-list
+Channel redhat-composer
+Channel redhat-eng-china
+Channel redhat-eng-china-leave-list
+Channel redhat-jira
+Channel redhat-jira-pnt
+Channel redhat-memo-list
+Channel redhat-mojo
+Channel redhat-payroll
+Channel redhat-platform-ci
+Channel redhat-platform-qe
+Channel redhat-polarion
+Channel redhat-polarion-users
+Channel redhat-qe-dept-list
+Channel redhat-qe-extended-staff
+Channel redhat-RedHat-Microsoft
+Channel redhat-s1-bug-review
+Channel redhat-s1-qe-list
+Channel redhat-service-desk
+Channel redhat-virt-devel
+Channel redhat-virt-qe-list

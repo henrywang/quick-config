@@ -1,0 +1,54 @@
+#!/bin/sh
+
+set -eux
+NAME=devel
+
+if [ -n "${TOOLBOX_RELEASE:-}" ]; then
+    RELEASE="--release $TOOLBOX_RELEASE"
+    NAME="$NAME-$TOOLBOX_RELEASE"
+else
+    RELEASE=''
+fi
+
+toolbox rm --force $NAME || true
+yes | toolbox create $RELEASE -c $NAME
+
+# install cockpit's build deps and other development tools
+toolbox run -c "$NAME" sh -exc '
+
+# set TERM to xterm to fix backspace not working issue
+# if TERM is set to kitty-xterm
+sudo chmod a+w /etc/bashrc
+sudo echo "export TERM=xterm" >> /etc/bashrc
+sudo chmod 644 /etc/bashrc
+
+# https://bugzilla.redhat.com/show_bug.cgi?id=1785244
+if [ ! -e /etc/resolv.conf ]; then
+    sudo ln -sfn /run/host/monitor/resolv.conf /etc/resolv.conf
+fi
+
+# this just refuses to rpm -i normally
+sudo dnf install -y cpio
+rpm2cpio ~xiaofwan/Documents/packages/RedHat/redhat-internal-cert-install-0.1-15.el7.csb.noarch.rpm | sudo cpio -id --directory=/ --verbose "./etc/pki/*"
+sudo update-ca-trust
+
+(cd /etc/yum.repos.d; sudo curl -O --location https://download.devel.redhat.com/rel-eng/RCMTOOLS/rcm-tools-fedora.repo)
+# HACK: no rcm-tools for F31 yet
+sudo sed -i "s/\$releasever/30/" /etc/yum.repos.d/rcm-tools-fedora.repo
+
+sudo dnf install -y curl make cmake gcc-c++ npm git chromium \
+    libvirt-daemon-kvm libvirt-client python3-libvirt \
+    virt-viewer virt-install tigervnc libappstream-glib \
+    expect python3-pycodestyle python3-pyflakes \
+    fedpkg rhpkg man-pages socat wget genisoimage vim jq \
+    ansible standard-test-roles rsync strace diffstat pwgen \
+    krb5-workstation rpm-build qemu-kvm qemu-img gnupg2
+
+sudo dnf clean packages
+
+# unbreak kerberos; https://github.com/debarshiray/toolbox/issues/235
+cat <<EOF | sudo tee /etc/krb5.conf.d/0_file_ccache
+[libdefaults]
+    default_ccache_name = FILE:/tmp/krb5.ccache
+EOF
+'

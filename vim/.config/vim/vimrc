@@ -1,0 +1,225 @@
+" Environment
+set directory=$XDG_CACHE_HOME/vim/swap,~/,/tmp
+set backupdir=$XDG_CACHE_HOME/vim/backup,~/,/tmp
+set undodir=$XDG_CACHE_HOME/vim/undo,~/,/tmp
+set viminfo+=n$XDG_CACHE_HOME/vim/viminfo
+set runtimepath+=$XDG_CONFIG_HOME/vim,$XDG_CONFIG_HOME/vim/after,$VIM,$VIMRUNTIME
+
+" Enable vim-plug automatic installation if it does not exist
+if empty(glob("$XDG_CONFIG_HOME/vim/autoload/plug.vim"))
+  silent !curl -fLo "$XDG_CONFIG_HOME/vim/autoload/plug.vim" --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * :PlugInstall --sync | source $MYVIMRC
+endif
+
+" Section: General Config {{{1
+" Change shell
+" Vim expects a POSIX-compliant shell, which Fish (my default shell) is not
+set shell=bash
+
+" Editing behaviour {{{
+set showmode                    " always show what mode we're currently editing in
+set hidden                      " buffer is modified, automatically hide it when we navigate away from it.
+" Auto wrap by default, so do not set wrap
+" visually wrap long lines and take the indentation of the line with space+\
+set showbreak=\ \
+" ref http://vim.wikia.com/wiki/Indenting_source_code
+set tabstop=4                   " insert 2 spaces for a tab
+set softtabstop=4               " when hitting <BS>, pretend like a tab is removed, even if spaces
+set shiftwidth=4                " to change the number of space characters inserted for indentation
+set expandtab                   " to insert space characters whenever the tab key is pressed
+set shiftwidth=4                " number of spaces to use for autoindenting
+set shiftround                  " use multiple of shiftwidth when indenting
+set smarttab                    " insert tabs on the start of a line according to shiftwidth, not tabstop
+set backspace=indent,eol,start  " backspace works in Insert mode but won't delete over line breaks,
+                                "   or automatically-inserted indentation, or the place where insert mode started
+set autoindent                  " always set autoindenting on
+set copyindent                  " copy the previous indentation on autoindenting
+set showmatch                   " reduce the need for %, the cursor will briefly jump to
+                                "   the matching brace when you insert one, keep it there for <matchtime>
+                                "   and move back to where you are typing 
+set matchtime=3                 " make vim wait for 0.3 sec
+set ignorecase                  " /the will find the or The or THE
+set smartcase                   " /The would find only The, while /the would find the or The etc
+"set scrolloff=5                 " scrolls the text, there are always at least five lines visible above the cursor,
+                                "   and five lines visible below the cursor
+set hlsearch                    " highlight search terms
+set incsearch                   " show search matches as you type
+set listchars=tab:▸\ ,trail:·,extends:#,nbsp:·
+set list                        " to visualise tabs, spaces, and line endings
+set fileformats="unix,dos,mac"
+
+" line number setting
+" both absolute and relative line numbers are enabled by default
+" when entering insert mode, relative line numbers are turned off, leaving absolute line numbers turned on
+:set number relativenumber
+:augroup numbertoggle
+:  autocmd!
+:  autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
+:  autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
+:augroup END
+
+" Press Space to turn off highlighting and clear any message already displayed.
+nnoremap <silent> <Space> :nohlsearch<Bar>:echo<CR>
+
+" make the 121st and the 81st columns stand out
+highlight ColorColumn term=reverse ctermbg=237 guibg=#3c3836
+call matchadd('ColorColumn', '\%121v', 100)
+call matchadd('ColorColumn', '\%81v', 100)
+
+" Shortcut mappings {{{
+" Edit and source the vimrc file
+nnoremap <silent> <leader>ev :e $MYVIMRC<CR>
+nnoremap <silent> <leader>sv :so $MYVIMRC<CR>
+
+" Easy window navigation
+noremap <C-h> <C-w>h
+noremap <C-j> <C-w>j
+noremap <C-k> <C-w>k
+noremap <C-l> <C-w>l
+
+" disable up, down, left, right keys for insert and visual mode
+inoremap <Up> <NOP>
+vnoremap <Up> <NOP>
+inoremap <Down> <NOP>
+vnoremap <Down> <NOP>
+inoremap <Left> <NOP>
+vnoremap <Left> <NOP>
+inoremap <Right> <NOP>
+vnoremap <Right> <NOP>
+
+" Strip all trailing whitespace from a file, using ,W
+nnoremap <leader>W :%s/\s\+$//<CR>:let @/=''<CR>
+
+" netrw setting
+let g:netrw_banner = 0
+let g:netrw_liststyle = 3
+
+" buffer switching
+nnoremap <Tab> :bnext<CR>
+nnoremap <S-Tab> :bprevious<CR>
+
+" expand the directory of the current file anywhere at the command line by pressing %%
+cnoremap %% <C-R>=fnameescape(expand('%:h')).'/'<cr>
+
+" }}}
+
+" VIM Plugins {{{
+call plug#begin("$XDG_DATA_HOME/vim/plugged")
+
+" vim-airline
+Plug 'vim-airline/vim-airline'
+" gruvbox theme
+Plug 'morhetz/gruvbox'
+" gitgutter shows a git diff in the gutter (sign column) and stages/undoes hunks
+Plug 'airblade/vim-gitgutter'
+" see the current git branch in airline
+Plug 'tpope/vim-fugitive'
+" surroundings: parentheses, brackets, quotes, XML tags, and more
+Plug 'tpope/vim-surround'
+" comment stuff out - gcc(a line), gc+motion(gcap), gc in visual mode
+Plug 'tpope/vim-commentary'
+" remaps . in a way that plugins can tap into it
+Plug 'tpope/vim-repeat'
+" plugins for javascript and react
+Plug 'pangloss/vim-javascript'
+Plug 'maxmellon/vim-jsx-pretty'
+" asynchronous lint engine
+Plug 'w0rp/ale'
+" code completetion engine
+Plug 'valloric/youcompleteme'
+" text object {{{
+" inspired by https://github.com/kana/vim-textobj-user/wiki
+Plug 'kana/vim-textobj-user'
+Plug 'kana/vim-textobj-indent'
+Plug 'kana/vim-textobj-entire'
+Plug 'kana/vim-textobj-line'
+" }}}
+" copying / pasting text to the os specific clipboard
+" do not need vim-X11, just vim
+Plug 'christoomey/vim-system-copy'
+" fzf for vim
+Plug 'junegunn/fzf.vim'
+" for ansible
+Plug 'pearofducks/ansible-vim'
+" Auto close parentheses and repeat by dot dot dot
+Plug 'cohama/lexima.vim'
+
+call plug#end()
+
+" }}}
+
+" fzf.vim setting {{{
+" map Ctrl-p to :Files command to search files
+nnoremap <C-p> :Files<Cr>
+" Likewise, Files command with preview window
+" FZF_DEFAULT_COMMAND in .zshrc enabled hidden file and folders search
+command! -bang -nargs=? -complete=dir Files
+  \ call fzf#vim#files(<q-args>, fzf#vim#with_preview(), <bang>0)
+
+" :Rg command
+command! -bang -nargs=* Rg
+  \ call fzf#vim#grep(
+  \   'rg --column --line-number --no-heading --color=always --hidden --smart-case '.shellescape(<q-args>), 1,
+  \   <bang>0 ? fzf#vim#with_preview('up:60%')
+  \           : fzf#vim#with_preview('right:50%:hidden', '?'),
+  \   <bang>0)
+
+" This is the default extra key bindings
+let g:fzf_action = {
+  \ 'ctrl-t': 'tab split',
+  \ 'ctrl-x': 'split',
+  \ 'ctrl-v': 'vsplit' }
+
+"}}}
+" ale setting {{{
+" fix files when you save them.
+let g:ale_fix_on_save = 1
+" quickfix not be used in combination with tools for searching for matches and commands like |:cfdo|
+let g:ale_set_loclist = 1
+let g:ale_set_quickfix = 0
+
+" }}}
+
+" vim-jsx-pretty setting {{{
+let g:vim_jsx_pretty_colorful_config = 1
+let g:vim_jsx_pretty_template_tags = []
+
+" }}}
+
+" vim-gitgutter setting {{{
+" when you make a change to a file tracked by git, the diff markers should appear automatically
+" default delay is 4000 (4 sec)
+set updatetime=100
+autocmd BufWinLeave * GitGutter
+
+" }}}
+
+" airline settings {{{
+" automatically populate the g:airline_symbols dictionary with the powerline symbols
+let g:airline_powerline_fonts = 1
+let g:airline#extensions#ale#enabled = 1
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#left_sep = ' '
+let g:airline#extensions#tabline#left_alt_sep = '|'
+let g:airline#extensions#tabline#formatter = 'default'
+
+" }}}
+
+" enable gruvbox theme
+" put this setting at the bottom because gruvbox has to be loaded first
+colorscheme gruvbox
+set background=dark    " dark mode
+" full transparent background
+" highlight Normal          ctermfg=none ctermbg=none
+highlight Normal ctermbg=Black
+highlight NonText ctermbg=Black
+
+" }}}
+
+" ansible-vim
+" dim the instances of name: found
+let g:ansible_name_highlight = 'd'
+
+" Jenkinsfile uses grovvy syntax hightlight
+au BufNewFile,BufRead Jenkinsfile* setf groovy

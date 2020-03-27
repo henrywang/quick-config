@@ -1,0 +1,11 @@
+#!/bin/sh
+
+STATE=$(nmcli networking connectivity)
+
+if [ "$STATE" = 'full' ]
+then
+    mbsync -q -a -c "$HOME/.config/mbsync/mbsyncrc"
+    exit 0
+fi
+echo "No internet connection."
+exit 0
