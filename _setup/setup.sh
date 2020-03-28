@@ -18,10 +18,12 @@ BASE_FOLDERS=(
     notmuch
     ranger
     scripts
+    sxiv
     systemd
     vim
     wallpaper
     weechat
+    zathura
     zsh
 )
 
