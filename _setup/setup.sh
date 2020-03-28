@@ -23,6 +23,7 @@ BASE_FOLDERS=(
     vim
     wallpaper
     weechat
+    xorg
     zathura
     zsh
 )
