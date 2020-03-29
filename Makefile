@@ -2,7 +2,7 @@ BLUEHAT=$$HOME/workspace/bluehat
 
 install:
 	# ffmpeg requires rpmfusion repo
-	sudo dnf install https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm
+	sudo dnf install https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(shell rpm -E %fedora).noarch.rpm
 	sudo dnf -y install zsh zsh-syntax-highlighting zsh-autosuggestions fzf ripgrep lsd \
 		xorg-x11-server-Xorg xorg-x11-xinit libX11-devel libXft-devel libXinerama-devel \
 		langpacks-zh_CN xbacklight dunst pulseaudio pulseaudio-utils alsa-plugins-pulseaudio \
@@ -76,42 +76,4 @@ setup:
 power:
 	sudo echo 'blacklist e1000e' > /etc/modprobe.d/blacklist-local.conf
 
-nopassword:
-	sudo chmod u+w /etc/sudoers
-	sudo sed -ie '/^%wheel/a %xiaofwan ALL=(ALL) NOPASSWD: ALL' /etc/sudoers
-	sudo chmod u-w /etc/sudoers
-
-printer:
-	sudo echo "browsepoll cups.nay.redhat.com" | tee -a /etc/cups/cups-browsed.conf > /dev/null
-	sudo echo "localqueuenamingremotecuPS RemoteName" | tee -a /etc/cups/cups-browsed.conf > /dev/null
-
-kerberos:
-	sudo cat <<EOT > /etc/krb5.conf
-[logging]
- default = FILE:/var/log/krb5libs.log
- kdc = FILE:/var/log/krb5kdc.log
- admin_server = FILE:/var/log/kadmind.log
- 
-[libdefaults]
- default_realm = REDHAT.COM
- dns_lookup_realm = false
- dns_lookup_kdc = false
- ticket_lifetime = 24h
- renew_lifetime = 7d
- forwardable = true
- 
-[realms]
- REDHAT.COM = {
-   kdc = kerberos01.core.prod.int.phx2.redhat.com.:88
-   kdc = kerberos01.core.prod.int.ams2.redhat.com.:88
-   kdc = kerberos01.core.prod.int.sin2.redhat.com.:88
-   admin_server = kerberos.corp.redhat.com.:749
-   default_domain = redhat.com
- }
- 
-[domain_realm]
- redhat.com = REDHAT.COM
- .redhat.com = REDHAT.COM
-EOT
-
-.PHONY: install prepare dwm st dmenu slstatus sxlock spaceship-prompt setup power nopassword printer kerberos
+.PHONY: install prepare dwm st dmenu slstatus sxlock spaceship-prompt setup power
