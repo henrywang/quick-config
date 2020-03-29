@@ -14,6 +14,7 @@ install:
 		mesa-dri-drivers jq podman
 
 prepare:
+	mkdir -p $$HOME/Contacts/redhat
 	mkdir -p $(BLUEHAT)
 	mkdir -p $$HOME/.config/vim/{undo,swap,backup}
 	mkdir -p $$HOME/.local/share/vim/plugged

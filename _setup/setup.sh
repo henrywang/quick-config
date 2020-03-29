@@ -12,6 +12,7 @@ BASE_FOLDERS=(
     dunst
     fonts
     git
+    khard
     mbsync
     mutt
     nitrogen
