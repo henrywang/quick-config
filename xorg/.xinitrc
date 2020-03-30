@@ -11,7 +11,7 @@ nitrogen --restore &
 # Transparent dependence
 compton &
 # Lock display after 5 minutes of user inactivity
-xautolock -time 5 -locker "sxlock -f -*-clean-bold-*-*-*-16-*-*-*-*-*-*-*" &
+xautolock -time 12 -locker "sxlock -f -*-clean-bold-*-*-*-16-*-*-*-*-*-*-*" &
 # Start dunst (notification)
 dunst &
 
