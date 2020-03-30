@@ -32,6 +32,12 @@ Keybindings | Action
 `MODKEY + q` | closes focused window
 `MODKEY + SHIFT + r` | restarts dwm
 `MODKEY + SHIFT + q` | quits dwm
+`MODKEY + z` | poweroff
+`MODKEY + x` | restart
+`MODKEY + s` | restart
+`MODKEY + SHIFT + l` | locks screen right now
+`MODKEY + SHIFT + d` | disable auto lock
+`MODKEY + SHIFT + e` | enable auto lock
 ------ | ------
 `CTRL + SHIFT + ALT + f` | opens firefox
 `CTRL + SHIFT + ALT + c` | opens chromium
