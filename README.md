@@ -38,6 +38,7 @@ Keybindings | Action
 `MODKEY + SHIFT + l` | locks screen right now
 `MODKEY + SHIFT + d` | disable auto lock
 `MODKEY + SHIFT + e` | enable auto lock
+`MODKEY + SHIFT + p` | multi-monitor setup
 ------ | ------
 `CTRL + SHIFT + ALT + f` | opens firefox
 `CTRL + SHIFT + ALT + c` | opens chromium
