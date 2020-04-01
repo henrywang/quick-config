@@ -34,3 +34,6 @@ export NOTMUCH_CONFIG="$XDG_CONFIG_HOME/notmuch/notmuch-config"
 
 # weechat config folder
 export WEECHAT_HOME="$XDG_CONFIG_HOME/weechat"
+
+# Start X server on tty1 only
+[ "$(tty)" = "/dev/tty1" ] && ! pgrep -x Xorg >/dev/null && exec startx
