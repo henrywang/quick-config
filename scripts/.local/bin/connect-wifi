@@ -1,0 +1,9 @@
+#!/bin/sh
+
+set -exou
+# A UI for choosing WIFI SSID to connect and enter passcode if needed
+
+ssid=$(nmcli device wifi list | awk '{ if ($1 == "*") print $2; else if ($1 == "--" || $1 == "IN-USE") next; else print $1; }' | dmenu -i -l 20 -p "Choose SSID to connect")
+echo -n "Passcode to join WIFI $ssid: "
+read passcode
+nmcli device wifi connect $ssid password $passcode
