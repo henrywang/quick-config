@@ -14,6 +14,7 @@ BASE_FOLDERS=(
     git
     khard
     mbsync
+    mock
     mutt
     nitrogen
     notmuch
