@@ -57,6 +57,12 @@ export FZF_DEFAULT_OPTS='
   --color=marker:#719e07,fg+:#fbf1c7,prompt:#83a598,hl+:#fabd2f
 '
 
+# nvm zsh plugin
+[ ! -d "$XDG_CONFIG_HOME/my-nvm-dir" ] && mkdir -p "$XDG_CONFIG_HOME/my-nvm-dir"
+export NVM_DIR="$XDG_CONFIG_HOME/my-nvm-dir"
+export NVM_LAZY_LOAD=true
+source "$HOME/workspace/bluehat/zsh-nvm/zsh-nvm.plugin.zsh"
+
 # alias
 alias ls='lsd'
 alias ll='ls -alh'
