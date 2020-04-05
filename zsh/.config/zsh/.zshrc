@@ -2,6 +2,30 @@
 source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
+# shell history
+# where to save history file
+HISTFILE="$ZDOTDIR/.zhistory"
+# add timestamp for each history
+setopt EXTENDED_HISTORY
+# commands the shell should remember in the session
+SAVEHIST=5000
+# commands the shell should remember in the history file
+HISTSIZE=2000
+# share history across multiple zsh sessions
+setopt SHARE_HISTORY
+# append to history
+setopt APPEND_HISTORY
+# adds commands as they are typed, not at shell exit
+setopt INC_APPEND_HISTORY
+# expire duplicates first
+setopt HIST_EXPIRE_DUPS_FIRST
+# do not store duplications
+setopt HIST_IGNORE_DUPS
+#ignore duplicates when searching
+setopt HIST_FIND_NO_DUPS
+# removes blank lines from history
+setopt HIST_REDUCE_BLANKS
+
 autoload -U colors && colors
 
 autoload -Uz compinit
@@ -29,8 +53,6 @@ SPACESHIP_PROMPT_ORDER=(
 
 # options
 # http://zsh.sourceforge.net/Doc/Release/Options.html#Options
-setopt SHARE_HISTORY
-setopt HIST_IGNORE_ALL_DUPS
 setopt AUTO_CD
 setopt COMPLETE_ALIASES
 
