@@ -20,46 +20,6 @@ prepare:
 	mkdir -p $$HOME/.local/share/vim/plugged
 	mkdir -p $$HOME/.cache/mutt/{headercache,messagecache,temp}
 
-dwm:
-	REPO_FOLDER=$(BLUEHAT)/dwm
-	mkdir -p $(REPO_FOLDER)
-	git clone -b my_cb3f58 https://github.com/henrywang/dwm.git $(REPO_FOLDER)
-	pushd $(REPO_FOLDER)
-	sudo make install
-	popd
-
-st:
-	REPO_FOLDER=$(BLUEHAT)/st
-	mkdir -p $(REPO_FOLDER)
-	git clone -b my_51e19ea1 https://github.com/henrywang/st.git $(REPO_FOLDER)
-	pushd $(REPO_FOLDER)
-	sudo make install
-	popd
-
-dmenu:
-	REPO_FOLDER=$(BLUEHAT)/dmenu
-	mkdir -p $(REPO_FOLDER)
-	git clone -b my_db6093 https://github.com/henrywang/dmenu.git $(REPO_FOLDER)
-	pushd $(REPO_FOLDER)
-	sudo make install
-	popd
-
-slstatus:
-	REPO_FOLDER=$(BLUEHAT)/slstatus
-	mkdir -p $(REPO_FOLDER)
-	git clone -b my_slstatus https://github.com/henrywang/slstatus.git $(REPO_FOLDER)
-	pushd $(REPO_FOLDER)
-	sudo make install
-	popd
-
-sxlock:
-	REPO_FOLDER=$(BLUEHAT)/sxlock
-	mkdir -p $(REPO_FOLDER)
-	git clone https://github.com/lahwaacz/sxlock.git $(REPO_FOLDER)
-	pushd $(REPO_FOLDER)
-	sudo make install
-	popd
-
 spaceship-prompt:
 	REPO_FOLDER=$(BLUEHAT)/spaceship-prompt
 	mkdir -p $(REPO_FOLDER)
@@ -67,6 +27,10 @@ spaceship-prompt:
 	pushd $(REPO_FOLDER)
 	ln -sf "$$PWD/spaceship.zsh" "$$HOME/.config/zsh/.zfunctions/prompt_spaceship_setup"
 	popd
+
+zsh-nvm:
+	mkdir -p $$HOME/workspace/bluehat/zsh-nvm
+	git clone https://github.com/lukechilds/zsh-nvm.git $$HOME/workspace/bluehat/zsh-nvm
 
 setup:
 	REPO_FOLDER=$$HOME/quick-config
@@ -77,4 +41,4 @@ setup:
 power:
 	sudo echo 'blacklist e1000e' > /etc/modprobe.d/blacklist-local.conf
 
-.PHONY: install prepare dwm st dmenu slstatus sxlock spaceship-prompt setup power
+.PHONY: install prepare spaceship-prompt zsh-nvm setup power
