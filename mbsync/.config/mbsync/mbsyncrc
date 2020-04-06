@@ -6,7 +6,7 @@ Host mail.corp.redhat.com
 User xiaofwan@redhat.com
 AuthMechs GSSAPI
 SSLType IMAPS
-CertificateFile /etc/pki/ca-trust/source/anchors/Red_Hat_IT_Root_CA.crt
+CertificateFile /etc/pki/ca-trust/source/anchors/2015-RH-IT-Root-CA.pem
 
 IMAPStore redhat-remote
 Account redhat

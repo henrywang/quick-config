@@ -18,6 +18,7 @@ prepare:
 	mkdir -p $(BLUEHAT)
 	mkdir -p $$HOME/.config/vim/{undo,swap,backup}
 	mkdir -p $$HOME/.local/share/vim/plugged
+	mkdir -p $$HOME/.local/share/mail/redhat
 	mkdir -p $$HOME/.cache/mutt/{headercache,messagecache,temp}
 
 spaceship-prompt:
