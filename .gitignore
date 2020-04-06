@@ -1,3 +1,5 @@
 ranger/.config/ranger/plugins/
 zsh/.config/zsh/.zcompdump
 zsh/.config/zsh/.zhistory
+weechat/.config/weechat/weechat.log
+weechat/.config/weechat/script/
