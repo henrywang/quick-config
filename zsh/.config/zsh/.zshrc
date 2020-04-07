@@ -40,11 +40,6 @@ prompt spaceship
 SPACESHIP_PROMPT_ORDER=(
   dir           # Current directory section
   git           # Git section (git_branch + git_status)
-  node          # Node.js section
-  ruby          # Ruby section
-  golang        # Go section
-  rust          # Rust section
-  haskell       # Haskell Stack section
   venv          # virtualenv section
   pyenv         # Pyenv section
   line_sep      # Line break
