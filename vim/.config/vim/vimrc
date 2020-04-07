@@ -125,7 +125,7 @@ Plug 'tpope/vim-repeat'
 Plug 'pangloss/vim-javascript'
 Plug 'maxmellon/vim-jsx-pretty'
 " asynchronous lint engine
-Plug 'w0rp/ale'
+Plug 'dense-analysis/ale'
 " code completetion engine
 Plug 'valloric/youcompleteme'
 " text object {{{
@@ -144,6 +144,8 @@ Plug 'junegunn/fzf.vim'
 Plug 'pearofducks/ansible-vim'
 " Auto close parentheses and repeat by dot dot dot
 Plug 'cohama/lexima.vim'
+" Python syntax highlighting
+Plug 'hdima/python-syntax'
 
 call plug#end()
 
@@ -223,3 +225,8 @@ let g:ansible_name_highlight = 'd'
 
 " Jenkinsfile uses grovvy syntax hightlight
 au BufNewFile,BufRead Jenkinsfile* setf groovy
+
+" python syntax highlighting plugin seetings
+" https://github.com/hdima/python-syntax
+" enable all syntax highlighting features
+let python_highlight_all = 1
