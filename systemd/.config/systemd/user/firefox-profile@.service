@@ -7,5 +7,5 @@ WantedBy=default.target
 [Service]
 Type=oneshot
 RemainAfterExit=yes
-ExecStart=/home/xiaofwan/.local/bin/firefox-sync %i
-ExecStop=/home/xiaofwan/.local/bin/firefox-sync %i
+ExecStart=/var/home/xiaofwan/bin/firefox-sync %i
+ExecStop=/var/home/xiaofwan/bin/firefox-sync %i

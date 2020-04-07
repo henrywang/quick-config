@@ -28,6 +28,8 @@ sudo update-ca-trust
 (cd /etc/yum.repos.d; sudo curl -O --location https://download.devel.redhat.com/rel-eng/RCMTOOLS/rcm-tools-fedora.repo)
 
 sudo dnf install -y curl make cmake gcc-c++ git chromium \
+    libX11-devel libXft-devel libXinerama-devel libXrandr-devel pam-devel \
+    glib2-devel gtk3-devel gcr-devel webkit2gtk3-devel \
     tree bzip2 zip unzip nodejs \
     libvirt-daemon-kvm libvirt-client python3-libvirt \
     virt-viewer virt-install tigervnc libappstream-glib \
