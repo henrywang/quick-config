@@ -6,8 +6,8 @@ setxkbmap -layout us,cn -option "caps:ctrl_modifier"
 ID=$(xinput list | grep -Eo 'TM.*id\=[0-9]{1,2}' | grep -Eo '\=[0-9]{1,2}'| grep -Eo '[0-9]{1,2}')
 xinput set-prop $ID "Device Enabled" 0
 
-# Default two monitors setup (independent)
-xrandr --output eDP1 --auto --scale 1.0x1.0 --output HDMI2 --auto --scale 1.0x1.0 --right-of eDP1
+# Default external monitors setup (turn off laptop screen and make external one primary)
+xrandr -q | grep -q "HDMI1 connected" && xrandr --output eDP1 --off --output HDMI2 --primary --auto --scale 1.0x1.0
 # Wallpaper setup
 nitrogen --restore
 # Transparent dependence
