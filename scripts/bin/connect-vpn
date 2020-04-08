@@ -1,0 +1,15 @@
+#!/bin/sh
+
+set -exou
+# dmenu for up and down VPN and entering PIN+TOKEN
+
+if nmcli connection show --active | grep -q tun; then
+    END_POINT=$(nmcli connection show --active | grep vpn | grep -o '^.*)')
+    [ "$(printf "No\\nYes" | dmenu -i -p "Disconnect $END_POINT?")" ] && nmcli connection down "$END_POINT"
+    notify-send "Bye $END_POINT"
+else
+    END_POINT=$(nmcli connection show | grep vpn | grep -o '^.*)' | dmenu -i -l 20 -p "Choose VPN end point to connect")
+    AUTH_CODE=$(echo "" | dmenu -p "PIN + TOKEN")
+    echo $AUTH_CODE | nmcli connection up "$END_POINT" --ask
+    notify-send "Go $END_POINT"
+fi
