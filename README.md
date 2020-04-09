@@ -32,20 +32,30 @@ Keybindings | Action
 `MODKEY + q` | closes focused window
 `MODKEY + SHIFT + r` | restarts dwm
 `MODKEY + SHIFT + q` | quits dwm
+------ | ------
 `MODKEY + z` | poweroff
 `MODKEY + x` | restart
-`MODKEY + s` | restart
+`MODKEY + s` | suspend
 `MODKEY + SHIFT + l` | locks screen right now
 `MODKEY + SHIFT + d` | disable auto lock
 `MODKEY + SHIFT + e` | enable auto lock
 `MODKEY + SHIFT + p` | multi-monitor setup
 ------ | ------
-`CTRL + SHIFT + ALT + f` | opens firefox
-`CTRL + SHIFT + ALT + c` | opens chromium
-`CTRL + SHIFT + ALT + w` | opens weechat
-`CTRL + SHIFT + ALT + m` | opens mutt
+`MODKEY + ALT + =` | volume up
+`MODKEY + ALT + -` | volume down
+`MODKEY + ALT + m` | mute volume
+`MODKEY + ALT + SHIFT + m` | mute mic
+------ | ------
+`CTRL + SHIFT + ALT + f` | opens firefox (tag 9)
+`CTRL + SHIFT + ALT + c` | opens chromium (tag 8)
+`CTRL + SHIFT + ALT + w` | opens weechat (tag 1)
+`CTRL + SHIFT + ALT + m` | opens mutt (tag 2)
 `CTRL + SHIFT + ALT + r` | opens ranger
 `CTRL + SHIFT + ALT + a` | opens alsamixer (floating)
+`CTRL + SHIFT + ALT + t` | opens Telegram (tag 1)
+------ | ------
+`MODKEY + v` | openvpn connect
+`MODKEY + a` | kinit
 
 ## st
 
