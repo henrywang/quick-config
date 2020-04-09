@@ -1,0 +1,8 @@
+#!/bin/sh
+
+set -exou
+# kerberos auth
+
+KERBEROS_CODE=$(echo "" | dmenu -p "Kerberos Code")
+echo $KERBEROS_CODE | kinit
+notify-send "Go kinit"
