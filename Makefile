@@ -16,7 +16,7 @@ install:
 prepare:
 	mkdir -p $$HOME/Contacts/redhat
 	mkdir -p $(BLUEHAT)
-	mkdir -p $$HOME/.config/vim/{undo,swap,backup}
+	mkdir -p $$HOME/.cache/vim/{undo,swap,backup,viminfo}
 	mkdir -p $$HOME/.local/share/vim/plugged
 	mkdir -p $$HOME/.local/share/mail/redhat
 	mkdir -p $$HOME/.cache/mutt/{headercache,messagecache,temp}
