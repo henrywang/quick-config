@@ -11,7 +11,7 @@ else
 fi
 
 toolbox rm --force $NAME || true
-yes | toolbox create $RELEASE -c $NAME
+toolbox -y create $RELEASE -c $NAME
 
 # install cockpit's build deps and other development tools
 toolbox run -c "$NAME" sh -exc '
