@@ -9,7 +9,7 @@ if nmcli connection show --active | grep -q tun; then
     notify-send "Bye $END_POINT"
 else
     END_POINT=$(nmcli connection show | grep vpn | grep -o '^.*)' | dmenu -i -l 20 -p "Choose VPN end point to connect")
-    AUTH_CODE=$(echo "" | dmenu -p "PIN + TOKEN")
+    AUTH_CODE=$(echo "" | dmenu -P -p "PIN + TOKEN")
     echo $AUTH_CODE | nmcli connection up "$END_POINT" --ask
     notify-send "Go $END_POINT"
 fi
