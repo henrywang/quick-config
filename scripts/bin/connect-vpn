@@ -3,6 +3,7 @@
 set -exou
 # dmenu for up and down VPN and entering PIN+TOKEN
 
+pkill nmcli || true
 if nmcli connection show --active | grep -q tun; then
     END_POINT=$(nmcli connection show --active | grep vpn | grep -o '^.*)')
     [ "$(printf "No\\nYes" | dmenu -i -p "Disconnect $END_POINT?")" ] && nmcli connection down "$END_POINT"
