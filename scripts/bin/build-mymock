@@ -1,0 +1,45 @@
+#!/bin/sh
+set -eux
+MOCK="mock -r ${OS:-default}"
+
+$MOCK --clean
+
+# install cockpit's build deps and other development tools
+$MOCK -i curl make cmake gcc-c++ git chromium \
+    libX11-devel libXft-devel libXinerama-devel libXrandr-devel pam-devel \
+    glib2-devel gtk3-devel gcr-devel webkit2gtk3-devel \
+    tree bzip2 zip unzip nodejs fontconfig \
+    libvirt-daemon-kvm libvirt-client python3-libvirt \
+    virt-viewer virt-install tigervnc libappstream-glib \
+    expect python3-pycodestyle python3-pyflakes \
+    fedpkg man-pages socat wget genisoimage vim jq \
+    ansible standard-test-roles rsync strace diffstat pwgen \
+    krb5-workstation rpm-build qemu-kvm qemu-img gnupg2 \
+    python3-devel python3-setuptools python3-PyYAML python3-jsonschema \
+    python3-requests python3-six python3-jinja2 python3-pyflakes \
+    e2fsprogs iproute net-tools procps python3-configobj python3-jsonpatch \
+    python3-oauthlib rsyslog sudo systemd systemd-units
+
+# interactive shell sessions work as user xiaofwan, not builder
+$MOCK --unpriv --copyin /dev/stdin /builddir/.bashrc <<EOF
+export HOME=/home/xiaofwan
+export TERM=xterm
+cd
+
+# Source global definitions
+if [ -f /etc/bashrc ]; then
+	. /etc/bashrc
+fi
+. ~/.bashrc
+EOF
+
+# make mock compatible with ostree's /home to /var/home structure
+$MOCK --chroot -- ln -sf /home /var/home
+
+# install rhpkg
+$MOCK -i ~xiaofwan/workspace/bluehat/quick-files/local-rpms/redhat-internal-cert-install-0.1-15.el7.csb.noarch.rpm
+
+$MOCK --chroot --unpriv -- rm -rf /builddir/.ssh
+$MOCK --chroot --unpriv -- ln -s /home/xiaofwan/.ssh /builddir/.ssh
+
+$MOCK --chroot -- ln -s /usr/bin/python3 /usr/bin/python

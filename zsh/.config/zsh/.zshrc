@@ -83,3 +83,5 @@ source "$HOME/workspace/bluehat/zsh-nvm/zsh-nvm.plugin.zsh"
 # alias
 alias ls='lsd'
 alias ll='ls -alh'
+alias m='mock -r ${OS:-default} --quiet --chroot --unpriv --cwd=`pwd`'
+alias ms='mock -r ${OS:-default} --quiet --shell --unpriv -- bash -l'
