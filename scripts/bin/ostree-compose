@@ -10,6 +10,6 @@ REPO=/var/tmp/repo/
 mkdir -p $REPO
 mount -t tmpfs -o size=5G tmpfs $REPO
 
-(cd ~xiaofwan/workspace/src/workstation-ostree-config/; ./compose.sh)
+(cd ~xiaofwan/workspace/bluehat/workstation-ostree-config/; ./compose.sh)
 rpm-ostree upgrade
 umount $REPO
