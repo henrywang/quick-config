@@ -96,8 +96,11 @@ let g:netrw_banner = 0
 let g:netrw_liststyle = 3
 
 " buffer switching
-nnoremap <Tab> :bnext<CR>
-nnoremap <S-Tab> :bprevious<CR>
+" show the buffer number on the top of the window tabline
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#buffer_nr_show = 1
+nnoremap  <silent> <tab>  :if &modifiable && !&readonly && &modified <CR> :write<CR> :endif<CR>:bnext<CR>
+nnoremap  <silent> <s-tab>  :if &modifiable && !&readonly && &modified <CR> :write<CR> :endif<CR>:bprevious<CR>
 
 " expand the directory of the current file anywhere at the command line by pressing %%
 cnoremap %% <C-R>=fnameescape(expand('%:h')).'/'<cr>
