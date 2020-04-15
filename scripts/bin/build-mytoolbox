@@ -39,4 +39,10 @@ sudo dnf install -y curl make cmake gcc-c++ git chromium \
     krb5-workstation rpm-build qemu-kvm qemu-img gnupg2
 
 sudo dnf clean packages
+
+# start X application inside toolbox, but open windows in host
+cat <<EOF | sudo tee /etc/profile.d/custom.sh
+#!/bin/sh
+export DISPLAY=:0.0
+EOF
 '
