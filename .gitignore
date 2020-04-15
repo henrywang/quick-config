@@ -3,3 +3,4 @@ zsh/.config/zsh/.zcompdump
 zsh/.config/zsh/.zhistory
 weechat/.config/weechat/weechat.log
 weechat/.config/weechat/script/
+weechat/.config/weechat/urlserver_list.txt
