@@ -13,7 +13,14 @@ nitrogen --restore
 # Transparent dependence
 compton &
 # Lock display after 5 minutes of user inactivity
-xautolock -time 12 -detectsleep -locker 'sxlock -f "-misc-liberation mono-medium-r-normal--0-0-0-0-m-0-iso10646-1"' &
+# xautolock -time 8 -resetsaver -locker 'sxlock -f "-misc-liberation mono-medium-r-normal--0-0-0-0-m-0-iso10646-1"' &
+
+# set standby, suspend, and off to 12 hours if laptop docked
+# network connection will lose if suspended
+xrandr -q | grep -q "^DP1 connected" && xset dpms 43200 43200 43200
+# lock screen with xsecurelock after 5 mins inactive
+xset s 300 5
+xss-lock -n /usr/libexec/xsecurelock/dimmer -l -- env XSECURELOCK_SHOW_HOSTNAME=0 xsecurelock &
 # Start dunst (notification)
 dunst &
 
