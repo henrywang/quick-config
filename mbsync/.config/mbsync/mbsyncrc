@@ -18,23 +18,23 @@ Flatten .
 
 Channel redhat-inbox
 Master :redhat-remote:"Inbox"
-Slave :redhat-local:Inbox
+Slave :redhat-local:inbox
 
 Channel redhat-sent
 Master :redhat-remote:"Sent"
-Slave :redhat-local:Sent
+Slave :redhat-local:sent
 
 Channel redhat-drafts
 Master :redhat-remote:"Drafts"
-Slave :redhat-local:Drafts
+Slave :redhat-local:drafts
 
 Channel redhat-junk
 Master :redhat-remote:"Junk"
-Slave :redhat-local:Junk
+Slave :redhat-local:junk
 
 Channel redhat-trash
 Master :redhat-remote:"Trash"
-Slave :redhat-local:Trash
+Slave :redhat-local:trash
 
 Channel redhat-3rd-qe-list
 Master :redhat-remote:"3rd-qe-list"
@@ -50,7 +50,7 @@ Slave :redhat-local:apac-list
 
 Channel redhat-bbs
 Master :redhat-remote:"BBS"
-Slave :redhat-local:BBS
+Slave :redhat-local:bbs
 
 Channel redhat-beaker-user-list
 Master :redhat-remote:"beaker-user-list"
@@ -78,7 +78,7 @@ Slave :redhat-local:ci-infra-list
 
 Channel redhat-composer
 Master :redhat-remote:"Composer"
-Slave :redhat-local:Composer
+Slave :redhat-local:composer
 
 Channel redhat-eng-china
 Master :redhat-remote:"eng-china"
@@ -90,11 +90,11 @@ Slave :redhat-local:eng-china-leave-list
 
 Channel redhat-jira
 Master :redhat-remote:"JIRA"
-Slave :redhat-local:JIRA
+Slave :redhat-local:jira
 
 Channel redhat-jira-pnt
 Master :redhat-remote:"JIRA-PNT"
-Slave :redhat-local:JIRA-PNT
+Slave :redhat-local:jira-pnt
 
 Channel redhat-memo-list
 Master :redhat-remote:"memo-list"
@@ -106,15 +106,15 @@ Slave :redhat-local:mojo
 
 Channel redhat-payroll
 Master :redhat-remote:"Payroll"
-Slave :redhat-local:Payroll
+Slave :redhat-local:payroll
 
 Channel redhat-platform-ci
 Master :redhat-remote:"Platform-CI"
-Slave :redhat-local:Platform-CI
+Slave :redhat-local:platform-ci
 
 Channel redhat-platform-qe
 Master :redhat-remote:"Platform-QE"
-Slave :redhat-local:Platform-QE
+Slave :redhat-local:platform-qe
 
 Channel redhat-polarion
 Master :redhat-remote:"Polarion"

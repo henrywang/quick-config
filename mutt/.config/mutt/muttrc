@@ -1,6 +1,6 @@
 # Mailbox --------------------------------------------
 set folder=~/.local/share/mail/redhat
-set spoolfile="+Inbox"
+set spoolfile="+inbox"
 # set trash="Deleted Items"
 # mailboxes +Inbox +Sent +Drafts +Trash +Junk +BBS +3rd-qe-list +announce-list +apac-list +beijing-virt-qe +bug-needinfo +Bugzilla +china-list +ci-infra-list +Composer +eng-china +eng-china-leave-list +JIRA +JIRA-PNT +memo-list +Payroll +Platform-CI +Platform-QE +Polarion +polarion-users +qe-dept-list +RedHat-Microsoft +s1-bug-review +s1-qe-list +"service desk" +virt-qe-list +virt-devel +beaker-user-list +mojo +qe-extended-staff
 
@@ -12,8 +12,8 @@ set ssl_force_tls = yes
 set editor="vim"
 set imap_keepalive = 300
 set ssl_starttls = yes
-set record="+Sent"
-set postponed="+Drafts"
+set record="+sent"
+set postponed="+drafts"
 
 # Paths ----------------------------------------------
 set certificate_file =~/.config/mutt/certificates
@@ -45,17 +45,17 @@ set sidebar_short_path = no
 set sidebar_folder_indent = no
 set sidebar_format = '%B%?F? [%F]?%* %?N?%N/?%S'
 # Mailbox to show in sidebar
-mailboxes =Inbox =Sent =Drafts =Trash =Junk =Payroll
+mailboxes =inbox =sent =drafts =trash =junk =payroll
 mailboxes ="===================="
-mailboxes =BBS =3rd-qe-list =s1-qe-list =s1-bug-review =RedHat-Microsoft
+mailboxes =bbs =3rd-qe-list =s1-qe-list =s1-bug-review =redhat-microsoft
 mailboxes ="====================="
-mailboxes =Composer =qe-extended-staff
+mailboxes =composer =qe-extended-staff
 mailboxes ="======================"
 mailboxes =announce-list =apac-list =china-list =eng-china =eng-china-leave-list
 mailboxes ="======================="
 mailboxes =memo-list =mojo
 mailboxes ="========================"
-mailboxes =beijing-virt-qe =bug-needinfo =Bugzilla =ci-infra-list =JIRA =JIRA-PNT =Platform-CI =Platform-QE =Polarion =polarion-users =qe-dept-list =service-desk =virt-qe-list =virt-devel =beaker-user-list
+mailboxes =beijing-virt-qe =bug-needinfo =bugzilla =ci-infra-list =jira =jira-pnt =platform-ci =platform-qe =polarion =polarion-users =qe-dept-list =service-desk =virt-qe-list =virt-devel =beaker-user-list
 
 # Color scheme ---------------------------------------
 source ~/.config/mutt/colors.muttrc
