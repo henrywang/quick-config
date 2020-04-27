@@ -59,6 +59,8 @@ bindkey '^f' autosuggest-accept
 # first try to find a suggestion from your history
 # if it can't find a match, will find a suggestion from the completion engine
 ZSH_AUTOSUGGEST_STRATEGY=(history completion)
+ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE=20
+ZSH_AUTOSUGGEST_USE_ASYNC=true
 
 # work with fzf and ripgrep
 source /usr/share/fzf/shell/key-bindings.zsh
