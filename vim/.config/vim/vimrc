@@ -62,10 +62,21 @@ set fileformats="unix,dos,mac"
 " Press Space to turn off highlighting and clear any message already displayed.
 nnoremap <silent> <Space> :nohlsearch<Bar>:echo<CR>
 
-" make the 121st and the 81st columns stand out
+" make the 101st and the 81st columns stand out
 highlight ColorColumn term=reverse ctermbg=237 guibg=#3c3836
-call matchadd('ColorColumn', '\%121v', 100)
+call matchadd('ColorColumn', '\%101v', 100)
 call matchadd('ColorColumn', '\%81v', 100)
+
+" automatically turn on spell-checking for Markdown files and gitcommit
+autocmd BufRead,BufNewFile *.md setlocal spell spelllang=en_us
+autocmd FileType gitcommit setlocal spell spelllang=en_us
+" toggle spelling use \s
+imap <Leader>s <C-o>:setlocal spell! spelllang=en_us<CR>
+nmap <Leader>s :setlocal spell! spelllang=en_us<CR>
+
+" turning on spell-checking will turn on word completion
+" press CTRL-N or CTRL-P in insert-mode to complete the word we’re typing
+set complete+=kspell
 
 " Shortcut mappings {{{
 " Edit and source the vimrc file
