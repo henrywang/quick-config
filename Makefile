@@ -20,6 +20,7 @@ prepare:
 	mkdir -p $$HOME/.local/share/vim/plugged
 	mkdir -p $$HOME/.local/share/mail/redhat
 	mkdir -p $$HOME/.cache/mutt/{headercache,messagecache,temp}
+	mkdir -p $$HOME/.cache/{wget,less}
 
 spaceship-prompt:
 	REPO_FOLDER=$(BLUEHAT)/spaceship-prompt
