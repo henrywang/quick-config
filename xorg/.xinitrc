@@ -36,7 +36,10 @@ xss-lock -n /usr/libexec/xsecurelock/dimmer -l -- env XSECURELOCK_SHOW_HOSTNAME=
 dunst &
 
 # Start slstatus(status bar)
-slstatus &
+# slstatus &
+
+# Start dwmblocks
+dwmblocks &
 
 # run dwm
 exec dwm

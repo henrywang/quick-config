@@ -1,0 +1,36 @@
+#!/bin/sh
+
+battery="/sys/class/power_supply/BAT0"
+capacity=$(cat "$battery"/capacity)
+status=$(cat "$battery"/status)
+
+if [ "$status" = "Discharging" ]
+then
+    [ "$capacity" -le 100 ] && [ "$capacity" -gt 90 ] && icon=
+    [ "$capacity" -le 90 ] && [ "$capacity" -gt 80 ] && icon=
+    [ "$capacity" -le 80 ] && [ "$capacity" -gt 70 ] && icon=
+    [ "$capacity" -le 70 ] && [ "$capacity" -gt 60 ] && icon=
+    [ "$capacity" -le 60 ] && [ "$capacity" -gt 50 ] && icon=
+    [ "$capacity" -le 50 ] && [ "$capacity" -gt 40 ] && icon=
+    [ "$capacity" -le 40 ] && [ "$capacity" -gt 30 ] && icon=
+    [ "$capacity" -le 30 ] && [ "$capacity" -gt 20 ] && icon=
+    [ "$capacity" -le 20 ] && [ "$capacity" -gt 10 ] && icon=
+    [ "$capacity" -le 10 ] && [ "$capacity" -gt 0 ] && icon=
+fi
+
+if [ "$status" = "Unknown" ] || [ "$status" = "Charging" ]
+then
+    [ "$capacity" -le 100 ] && [ "$capacity" -gt 90 ] && icon=
+    [ "$capacity" -le 90 ] && [ "$capacity" -gt 80 ] && icon=
+    [ "$capacity" -le 80 ] && [ "$capacity" -gt 60 ] && icon=
+    [ "$capacity" -le 60 ] && [ "$capacity" -gt 40 ] && icon=
+    [ "$capacity" -le 40 ] && [ "$capacity" -gt 30 ] && icon=
+    [ "$capacity" -le 30 ] && [ "$capacity" -gt 0 ] && icon=
+fi
+
+
+if [ "$status" = "Full" ]
+then
+    icon=
+fi
+printf "%s %s%% " "$icon" "$capacity"

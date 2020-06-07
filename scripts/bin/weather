@@ -1,0 +1,10 @@
+#!/bin/sh
+
+case $BUTTON in
+	1) notify-send " World weather" "\- Nashville: $(curl -s 'wttr.in/{Nashville}?format=%C+%t')
+- Berlin: $(curl -s 'wttr.in/{Berlin}?format=%C+%t')
+- Brno: $(curl -s 'wttr.in/{Brno}?format=%C+%t')";;
+	3) notify-send " Weather module" "\- Left click for world weather." ;;
+esac
+
+curl -s 'wttr.in/{Beijing}?format=%C+%t'
