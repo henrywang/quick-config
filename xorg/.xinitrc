@@ -11,13 +11,18 @@ xinput set-prop "$ID" "Device Enabled" 0
 if xrandr -q | grep -q "^DP1 connected"; then
     #turn off laptop screen and make external one primary)
     xrandr --output eDP1 --off --output DP1 --primary --auto --scale 1.0x1.0
-    # set standby, suspend, and off to 12 hours if laptop docked
-    # network connection will lose if suspended
-    xset dpms 43200 43200 43200
-    # disable x server access control
-    # all application from container and chroot connect to host x server
-    xhost +
 fi
+if xrandr -q | grep -q "^HDMI1 connected"; then
+    #turn off laptop screen and make external one primary)
+    xrandr --output eDP1 --off --output HDMI1 --primary --auto --scale 1.0x1.0
+fi
+
+# set standby, suspend, and off to 12 hours if laptop docked
+# network connection will lose if suspended
+xset dpms 43200 43200 43200
+# disable x server access control
+# all application from container and chroot connect to host x server
+xhost +
 
 # Wallpaper setup
 nitrogen --restore
