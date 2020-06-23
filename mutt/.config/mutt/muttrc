@@ -47,15 +47,15 @@ set sidebar_format = '%B%?F? [%F]?%* %?N?%N/?%S'
 # Mailbox to show in sidebar
 mailboxes =inbox =sent =drafts =trash =junk =payroll
 mailboxes ="===================="
-mailboxes =bbs =3rd-qe-list =s1-qe-list =s1-bug-review =redhat-microsoft
+mailboxes =bbs =3rd-qe-list =s1-qe-list =s1-bug-review =redhat-microsoft =calendar-invitation
 mailboxes ="====================="
 mailboxes =composer =qe-extended-staff
 mailboxes ="======================"
-mailboxes =announce-list =apac-list =china-list =eng-china =eng-china-leave-list
+mailboxes =announce-list =apac-list =china-list =eng-china =eng-china-leave-list =cxno
 mailboxes ="======================="
-mailboxes =memo-list =mojo
+mailboxes =memo-list =mojo =umb
 mailboxes ="========================"
-mailboxes =beijing-virt-qe =bug-needinfo =bugzilla =ci-infra-list =jira =jira-pnt =platform-ci =platform-qe =polarion =polarion-users =qe-dept-list =service-desk =virt-qe-list =virt-devel =beaker-user-list
+mailboxes =beijing-virt-qe =bug-needinfo =bugzilla =ci-infra-list =jira =jira-pnt =platform-ci =platform-qe =polarion =polarion-users =qe-dept-list =service-desk =virt-qe-list =virt-devel =beaker-user-list =help-ops
 
 # Color scheme ---------------------------------------
 source ~/.config/mutt/colors.muttrc

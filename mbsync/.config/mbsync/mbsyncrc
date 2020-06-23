@@ -156,6 +156,22 @@ Channel redhat-virt-qe-list
 Master :redhat-remote:"virt-qe-list"
 Slave :redhat-local:virt-qe-list
 
+Channel redhat-umb
+Master :redhat-remote:"umb"
+Slave :redhat-local:umb
+
+Channel redhat-cxno
+Master :redhat-remote:"cxno"
+Slave :redhat-local:cxno
+
+Channel redhat-help-ops
+Master :redhat-remote:"help-ops"
+Slave :redhat-local:help-ops
+
+Channel redhat-calendar-invitation
+Master :redhat-remote:"calendar-invitation"
+Slave :redhat-local:calendar-invitation
+
 # Save the synchronization state files in the relevant directory
 SyncState *
 # Automatically create missing mailboxes, both locally and on the server
@@ -199,3 +215,7 @@ Channel redhat-s1-qe-list
 Channel redhat-service-desk
 Channel redhat-virt-devel
 Channel redhat-virt-qe-list
+Channel redhat-umb
+Channel redhat-cxno
+Channel redhat-help-ops
+Channel redhat-calendar-invitation
