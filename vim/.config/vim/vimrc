@@ -48,6 +48,7 @@ set incsearch                   " show search matches as you type
 set listchars=tab:▸\ ,trail:·,extends:#,nbsp:·
 set list                        " to visualise tabs, spaces, and line endings
 set fileformats="unix,dos,mac"
+set encoding=utf-8
 
 " line number setting
 " both absolute and relative line numbers are enabled by default
@@ -123,6 +124,10 @@ call plug#begin("$XDG_DATA_HOME/vim/plugged")
 
 " vim-airline
 Plug 'vim-airline/vim-airline'
+" Adds filetype glyphs (icons) to various vim plugins (vim-airline in my case)
+Plug 'ryanoasis/vim-devicons'
+" lightline
+" Plug 'itchyny/lightline.vim'
 " gruvbox theme
 Plug 'morhetz/gruvbox'
 " gitgutter shows a git diff in the gutter (sign column) and stages/undoes hunks
@@ -244,3 +249,8 @@ au BufNewFile,BufRead Jenkinsfile* setf groovy
 " https://github.com/hdima/python-syntax
 " enable all syntax highlighting features
 let python_highlight_all = 1
+
+" set laststatus=2
+" -- INSERT -- is unnecessary anymore because the mode information is
+"  displayed in the statusline
+set noshowmode
