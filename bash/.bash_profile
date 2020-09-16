@@ -9,6 +9,9 @@ fi
 if ! [[ "$PATH" =~ "$HOME/.local/bin" ]]; then
 	export PATH="$HOME/.local/bin:${PATH}"
 fi
+if ! [[ "$PATH" =~ "/usr/local/go/bin" ]]; then
+	export PATH="/usr/local/go/bin:${PATH}"
+fi
 
 export EDITOR="/usr/bin/vim"
 
