@@ -172,6 +172,10 @@ Channel redhat-calendar-invitation
 Master :redhat-remote:"calendar-invitation"
 Slave :redhat-local:calendar-invitation
 
+Channel redhat-my-info-bot
+Master :redhat-remote:"my-info-bot"
+Slave :redhat-local:my-info-bot
+
 # Save the synchronization state files in the relevant directory
 SyncState *
 # Automatically create missing mailboxes, both locally and on the server
@@ -219,3 +223,4 @@ Channel redhat-umb
 Channel redhat-cxno
 Channel redhat-help-ops
 Channel redhat-calendar-invitation
+Channel redhat-my-info-bot

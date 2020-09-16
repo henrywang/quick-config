@@ -47,7 +47,7 @@ set sidebar_format = '%B%?F? [%F]?%* %?N?%N/?%S'
 # Mailbox to show in sidebar
 mailboxes =inbox =sent =drafts =trash =junk =payroll
 mailboxes ="===================="
-mailboxes =bbs =3rd-qe-list =s1-qe-list =s1-bug-review =redhat-microsoft =calendar-invitation
+mailboxes =bbs =my-bot-info =3rd-qe-list =s1-qe-list =s1-bug-review =redhat-microsoft =calendar-invitation
 mailboxes ="====================="
 mailboxes =composer =qe-extended-staff
 mailboxes ="======================"
