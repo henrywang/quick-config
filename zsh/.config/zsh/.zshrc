@@ -91,3 +91,4 @@ alias ll='ls -alh'
 alias m='mock -r ${OS:-default} --quiet --chroot --unpriv --cwd=`pwd`'
 alias ms='mock -r ${OS:-default} --quiet --shell --unpriv -- bash -l'
 alias wget="wget --hsts-file $XDG_CACHE_HOME/wget/wget-hsts"
+alias xkb='setxkbmap -layout us,cn -option "caps:ctrl_modifier"'
