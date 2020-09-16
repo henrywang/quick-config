@@ -25,24 +25,85 @@ sudo dnf install -y cpio
 rpm2cpio ~xiaofwan/workspace/bluehat/workstation-ostree-config/local-rpms/redhat-internal-cert-install-0.1-15.el7.csb.noarch.rpm | sudo cpio -id --directory=/ --verbose "./etc/pki/*"
 sudo update-ca-trust
 
-(cd /etc/yum.repos.d; sudo curl -O --location https://download.devel.redhat.com/rel-eng/RCMTOOLS/rcm-tools-fedora.repo)
+(cd /etc/yum.repos.d; sudo curl -O --location https://download.devel.redhat.com/rel-eng/RCMTOOLS/rcm-tools-fedora.repo; sudo curl -O --location https://beaker-project.org/yum/beaker-client-Fedora.repo)
 
-sudo dnf install -y curl make cmake gcc-c++ git chromium \
-    libX11-devel libXft-devel libXinerama-devel libXrandr-devel pam-devel \
-    glib2-devel gtk3-devel gcr-devel webkit2gtk3-devel \
-    tree bzip2 zip unzip nodejs \
-    libvirt-daemon-kvm libvirt-client python3-libvirt \
-    virt-viewer virt-install tigervnc libappstream-glib \
-    expect python3-pycodestyle python3-pyflakes \
-    fedpkg rhpkg man-pages socat wget genisoimage vim jq \
-    ansible standard-test-roles rsync strace diffstat pwgen \
-    krb5-workstation rpm-build qemu-kvm qemu-img gnupg2
+sudo dnf install -y \
+    ansible \
+    beaker-client \
+    bzip2 \
+    chromium \
+    cmake \
+    curl \
+    dbus-glib \
+    diffstat \
+    expect \
+    fedpkg \
+    fzf
+    gcc-c++ \
+    gcr-devel \
+    genisoimage \
+    git \
+    gnupg2 \
+    golang \
+    gtk3-devel \
+    make \
+    jq \
+    krb5-workstation \
+    libappstream-glib \
+    libguestfs-tools \
+    libvirt-daemon-kvm \
+    libvirt-client \
+    libX11-devel \
+    libXft-devel \
+    libXinerama-devel \
+    libXrandr-devel \
+    libXt \
+    man-pages \
+    nodejs \
+    pam-devel \
+    pwgen \
+    python3-boto \
+    python3-boto3 \
+    python3-dnf \
+    python3-libvirt \
+    python3-openstacksdk \
+    python3-passlib \
+    python3-pycodestyle \
+    python3-pyflakes \
+    python3-pyvmomi \
+    python3-requests-credssp \
+    python3-stomppy \
+    qemu-kvm \
+    qemu-img \
+    rhpkg \
+    ripgrep
+    rpm-build \
+    rsync \
+    ShellCheck \
+    socat \
+    standard-test-roles \
+    strace \
+    tigervnc \
+    tree \
+    unzip \
+    vim \
+    virt-viewer \
+    virt-install \
+    webkit2gtk3-devel \
+    wget \
+    zip
 
 sudo dnf clean packages
 
-# start X application inside toolbox, but open windows in host
-cat <<EOF | sudo tee /etc/profile.d/custom.sh
-#!/bin/sh
-export DISPLAY=:0.0
-EOF
-'
+# sudo pip install requests-credssp pywinrm pyvmomi boto boto3 openstacksdk stomp.py passlib
+
+# install nightly firefox for cockpit-composer test
+curl --location 'https://download.mozilla.org/?product=firefox-nightly-latest-ssl&os=linux64&lang=en-US' | \
+    sudo tar -C /usr/local/lib/ -xj && sudo ln -s /usr/local/lib/firefox/firefox /usr/local/bin/
+
+## start X application inside toolbox, but open windows in host
+#cat <<EOF | sudo tee /etc/profile.d/custom.sh
+##!/bin/sh
+#export DISPLAY=:0.0
+#EOF
+#'
