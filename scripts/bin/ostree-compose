@@ -1,15 +1,17 @@
 #!/bin/sh
 set -eux
 
-rpm-ostree cleanup --rollback
+rpm-ostree cleanup --rollback || true
 rpm-ostree cleanup --repomd
 rpm-ostree cleanup --base
 
 # keep repo on tmpfs
 REPO=/var/tmp/repo/
 mkdir -p $REPO
-mount -t tmpfs -o size=5G tmpfs $REPO
+mount -t tmpfs tmpfs $REPO
 
 (cd ~xiaofwan/workspace/bluehat/workstation-ostree-config/; ./compose.sh)
 rpm-ostree upgrade
 umount $REPO
+
+# fstrim -av
