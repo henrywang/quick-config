@@ -1,0 +1,6 @@
+#
+# Sway Status Bar Settings
+#
+
+#start waybar
+exec waybar-session

@@ -1,0 +1,9 @@
+#!/bin/bash
+
+_bemenu() {
+  bemenu -i --fn "pango:Hack Nerd Font 13" -n --tf="#282828" --tb="#fabd2f" --ff="#ebdbb2" --fb="#3c3836" --hf="#fabd2f" --hb="#3c3836" --nf="#282828" --nb="#a89984" -m $(swaymsg -t get_outputs -r | jq -r '.[] | select(.active==true) | select(.focused==true) | .id') --no-exec "$@"
+}
+
+_bemenu_hide() {
+  bemenu -i --fn "pango:Hack Nerd Font 13" -n --tf="#282828" --tb="#fabd2f" --ff="#3c3836" --fb="#3c3836" --hf="#fabd2f" --hb="#3c3836" --nf="#282828" --nb="#a89984" -m $(swaymsg -t get_outputs -r | jq -r '.[] | select(.active==true) | select(.focused==true) | .id') --no-exec "$@"
+}

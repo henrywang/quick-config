@@ -38,5 +38,9 @@ export NOTMUCH_CONFIG="$XDG_CONFIG_HOME/notmuch/notmuch-config"
 # weechat config folder
 export WEECHAT_HOME="$XDG_CONFIG_HOME/weechat"
 
-# Start X server on tty1 only
-[ "$(tty)" = "/dev/tty1" ] && ! pgrep -x Xorg >/dev/null && exec startx
+# bemenu with wayland
+export BEMENU_BACKEND="wayland"
+export BEMENU_RENDERER="/usr/lib64/bemenu/bemenu-renderer-wayland.so"
+
+# Start sway on tty1 only
+[ "$(tty)" = "/dev/tty1" ] && ! pgrep -x sway >/dev/null && exec sway

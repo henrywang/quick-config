@@ -1,0 +1,11 @@
+#
+# Sway Notification Settings
+#
+
+# start mako
+
+# mako launch
+set $mako bash -c "killall mako; mako"
+
+# Enable Notification using mako
+exec_always $mako

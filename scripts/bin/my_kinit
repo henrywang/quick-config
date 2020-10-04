@@ -3,6 +3,8 @@
 set -exou
 # kerberos auth
 
-KERBEROS_CODE=$(echo "" | dmenu -P -p "Kerberos Code")
+source "${HOME}/.local/share/scripts/bemenu"
+
+KERBEROS_CODE=$(echo "" | _bemenu_hide -p "Kerberos Code")
 echo $KERBEROS_CODE | kinit
 notify-send "Go kinit"

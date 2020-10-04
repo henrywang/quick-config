@@ -1,0 +1,10 @@
+ignore-empty-password
+hide-keyboard-layout
+font="Hack Nerd Font" 15
+indicator-radius=80
+indicator-thickness=10
+key-hl-color=504945
+ring-color=a89984
+ring-clear-color=fabd2f
+ring-var-color=458588
+ring-wrong-color=cc241d

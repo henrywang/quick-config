@@ -1,0 +1,30 @@
+# Message position
+anchor=top-right
+
+# Font
+font="Hack Nerd Font" 12
+
+# Size
+width=350
+padding=10
+margin=10
+border-size=5
+
+# Timeout
+default-timeout=10000
+
+# Only for desktop, ignored when no such output exists
+# output=eDP-1
+
+icon-path=/usr/share/icons/Moka
+icons=1
+markup=1
+
+# Colors
+background-color=#fabd2f
+border-color=#fabd2f
+text-color=#3c3836
+
+[urgency=high]
+border-color=#fb4934
+ignore-timeout=1

@@ -1,0 +1,33 @@
+#
+# Sway Theme Settings
+#
+
+# set primary gruvbox colorscheme colors
+set $bg #282828
+set $red #cc241d
+set $green #98971a
+set $yellow #d79921
+set $blue #458588
+set $purple #b16286
+set $aqua #689d6a
+set $gray #a89984
+set $darkgray #1d2021
+set $fg #ebdbb2
+
+# font setting
+font pango:"Hack Nerd Font" 9
+
+# set Gaps
+gaps inner 3
+gaps outer 3
+# smart_gaps on
+
+# Borders
+for_window [class="^.*"] border pixel 1
+default_border none
+default_floating_border none
+
+# Sway Colors			border, background, text, indicator, child_border
+client.focused 			$bg $bg $fg $bg $bg
+client.focused_inactive		$bg $bg $fg $bg $bg 
+client.unfocused		$bg $bg $fg $bg $bg

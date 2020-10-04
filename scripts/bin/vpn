@@ -1,3 +1,0 @@
-#!/bin/sh
-
-ip link show up | grep tun0 > /dev/null 2>&1 && printf "%s\n" "" || printf "%s\n" "ﲙ"

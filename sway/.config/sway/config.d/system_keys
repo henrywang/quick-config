@@ -1,0 +1,18 @@
+#
+# System Mode Settings
+#
+
+# system mode
+set $mode_system System: (l) lock, (e) logout, (s) suspend, (r) reboot, (S) shutdown
+mode "$mode_system" {
+    bindsym l exec swaylock-fancy, mode "default"
+    bindsym e exit
+    bindsym s exec --no-startup-id systemctl suspend, mode "default"
+    bindsym r exec --no-startup-id systemctl reboot, mode "default"
+    bindsym Shift+s exec --no-startup-id systemctl poweroff -i, mode "default"
+
+    # return to default mode
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+bindsym $mod+Shift+e mode "$mode_system"

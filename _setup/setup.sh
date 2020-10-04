@@ -8,24 +8,26 @@ fi
 
 # folders that should be installed for every setup 
 BASE_FOLDERS=(
+    alacritty
     bash
-    dunst
     fonts
     git
+    kanshi
     khard
+    mako
     mbsync
     mock
     mutt
-    nitrogen
     notmuch
     ranger
     scripts
-    sxiv
+    sway
+    swaylock
     systemd
     vim
     wallpaper
+    waybar
     weechat
-    xorg
     zathura
     zsh
 )

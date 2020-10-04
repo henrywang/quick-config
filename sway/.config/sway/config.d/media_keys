@@ -1,0 +1,37 @@
+#
+# Media Keybindings
+#
+
+#
+# Set Volume Keybinding variables
+#
+# Control Volume
+set $adjust_vol pactl set-sink-volume @DEFAULT_SINK@
+# Mute Volume
+set $mute_vol pactl set-sink-mute @DEFAULT_SINK@ toggle
+# Mute Microphone
+set $mute_mic pactl set-source-mute @DEFAULT_SOURCE@ toggle
+
+#
+# Volume & Mic Keybindings
+#
+# $mod+minus: Lower volume 5% 
+bindsym $mod+minus exec $adjust_vol -5%
+# $mod+Shift+minus: Lower volume 20% 
+bindsym $mod+Shift+minus exec $adjust_vol -20%
+# $mod+equal: Raise volume 5% 
+bindsym $mod+equal exec $adjust_vol +5%
+# $mod+Shift+equal: Raise volume 20% 
+bindsym $mod+Shift+equal exec $adjust_vol +20%
+# $mod+semicolon: Emergency Key 
+#bindsym $mod+semicolon exec emergency-hide
+# $mod+Shift+semicolon: Toggle mute volume 
+bindsym $mod+Shift+semicolon exec $mute_vol
+
+# XF86 & Volume Keys
+bindsym XF86AudioMute exec $mute_vol
+bindsym XF86AudioLowerVolume exec $adjust_vol -5%
+bindsym XF86AudioRaiseVolume exec  $adjust_vol +5%
+
+# XF86 Mic Mute Toggle Key
+bindsym XF86AudioMicMute exec $mute_mic 

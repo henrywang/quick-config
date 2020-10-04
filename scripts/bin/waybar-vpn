@@ -1,0 +1,17 @@
+#!/bin/sh
+
+vpn() {
+  vpn="$(ip add | grep "tun0")"
+  if [ -n "$vpn" ]; then
+    vpn=""
+    class=on
+  else
+    vpn=""
+    class=off
+  fi
+   printf '{"text": "%s", "tooltip": "", "class": "%s"}\n' "$vpn" "$class"
+}
+
+vpn
+
+ip monitor link | while read -r line; do vpn; done

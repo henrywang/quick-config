@@ -1,0 +1,66 @@
+#
+# Sway Keybinding settings
+#
+
+#
+# Set Variables
+#
+
+# Application Launcher
+set $menu wofi --show drun -f -i --width 350
+# Application spawner
+set $spawn spawn
+
+#
+# Custom Keybindings
+#
+
+# mod+q: Kill focused window
+bindsym $mod+q kill
+
+# mod+Shift+r: Restart sway
+bindsym $mod+Shift+r restart
+
+# mod+Shift+c: Reload sway
+bindsym $mod+Shift+c reload
+
+# mod+Control+Escape: exit sway
+bindsym $mod+Control+Escape exit
+
+#
+# Menu Keybindings
+#
+
+# mod+Space Menu Launcher
+bindsym $mod+Space exec $menu
+
+#
+# Application Keybindings
+#
+
+# mod+f: Launch firefox
+bindsym $mod+f exec firefox-wayland
+# mod+m: Launch mutt
+bindsym $mod+m exec mutt
+# mod+w: Launch weechat
+bindsym $mod+w exec weechat
+# mod+t: Launch weechat
+bindsym $mod+t exec Telegram
+
+#
+# Terminal Application Keybinds
+#
+
+# mod+Return: Launch an alacritty terminal
+bindsym $mod+Return exec alacritty
+
+#
+# VPN, Kerberos, and WIFI Keybinds
+#
+
+# mod+v: Connect VPN
+bindsym $mod+v exec connect-vpn
+# mod+k: SSO login
+bindsym $mod+k exec my_kinit
+# mod+i: Connect WIFI
+bindsym $mod+i exec connect-wifi

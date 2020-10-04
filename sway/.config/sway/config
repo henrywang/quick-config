@@ -1,0 +1,33 @@
+#
+# Configuration file for sway
+#
+# $XDG_CONFIG_DIR/sway/config
+#
+
+#
+# Set Variables
+#
+
+# Set Mod
+set $mod Mod4
+
+# Set workspace name
+set $ws1 1
+set $ws2 2
+set $ws3 3
+set $ws4 4
+set $ws5 5
+set $ws6 6
+set $ws7 7
+set $ws8 8
+set $ws9 9
+set $wsX X
+
+# Disalbe Xwayland
+xwayland disable
+
+# start sway-session.target
+exec systemctl --user start sway-session.target
+
+# Include files in config.d directory
+include $HOME/.config/sway/config.d/*

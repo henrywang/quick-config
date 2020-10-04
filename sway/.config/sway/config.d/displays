@@ -1,0 +1,40 @@
+#
+# Sway Diplay Configuration
+#
+
+#
+# Set variables
+#
+
+# Kanshi launch
+set $kanshi bash -c "killall kanshi; kanshi"
+# Laptop output identifier
+set $laptop_monitor "eDP-1"
+
+#
+# Disable laptop monitor (eDP-1) upon laptop lid being closed
+# Enable laptop monitor (eDP-1) upon laptop lid being opened
+#
+bindswitch --reload lid:on output $laptop_monitor disable
+bindswitch --reload lid:off output $laptop_monitor enable
+
+#
+# Setup wallpaper
+#
+
+# Enable Displays using Kanshi
+exec_always $kanshi 
+
+# Set wallpaper at first
+exec swaybg -o \* -i $HOME/.cache/wallpaper/starship.png -m fill
+
+#
+# Keybindings 
+#
+
+# XF86 key for switching displays
+bindsym XF86Display exec $kanshi
+
+# XF86 keys for brightness
+bindsym XF86MonBrightnessDown exec light -U 10
+bindsym XF86MonBrightnessUp exec light -A 10

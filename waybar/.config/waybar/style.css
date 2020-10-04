@@ -1,0 +1,108 @@
+* {
+    border: none;
+    border-radius: 0;
+    font-family: Hack Nerd Font;
+    font-size: 18px;
+    min-height: 0;
+}
+
+window#waybar {
+    background: rgba(43, 48, 59, 0.3);
+    border-bottom: 3px solid transparent;
+    color: #ebdbb2;
+}
+
+#workspaces button {
+    padding: 0 5px;
+    margin: 0 3px;
+    color: #ebdbb2;
+    border-bottom: 3px solid transparent;
+}
+
+#workspaces button.focused {
+    background: #665c54;
+    border-bottom: 3px solid #ebdbb2;
+}
+
+#mode {
+    background: transparent;
+    border-bottom: 3px solid #b8bb26;
+}
+
+#clock, #battery, #cpu, #memory, #network, #pulseaudio, #temperature, #idle_inhibitor, #custom-openvpn {
+    padding: 0 6px;
+    margin: 0 5px;
+}
+
+#clock {
+    background-color: transparent;
+    color: #ebdbb2;
+}
+
+#battery {
+    color: #ebdbb2;
+}
+
+#battery.charging {
+    color: #ebdbb2;
+}
+
+@keyframes blink {
+    to {
+        background-color: rgba(1, 1, 1, 0);
+    }
+}
+
+#battery.warning:not(.charging) {
+    background: #f53c3c;
+    color: #ebdbb2;
+    animation-name: blink;
+    animation-duration: 0.5s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+#cpu {
+    background: transparent;
+    border-bottom: 3px solid #83a598;
+    color: #ebdbb2;
+}
+
+#memory {
+    background: transparent;
+    border-bottom: 3px solid #d3869b;
+    color: #ebdbb2;
+}
+
+#network {
+    background: transparent;
+    color: #ebdbb2;
+}
+
+#network.disconnected {
+    background: transparent;
+    color: #cc241d;
+}
+
+#pulseaudio {
+    background: transparent;
+    color: #ebdbb2;
+}
+
+#pulseaudio.muted {
+    border-bottom: 3px solid #fe8019;
+}
+
+#tray {
+    background-color: transparent;
+}
+
+#custom-openvpn {
+    background: transparent;
+    color: #ebdbb2;
+}
+
+#custom-openvpn.on {
+    border-bottom: 3px solid #8ec07c;
+}
