@@ -5,10 +5,11 @@
 #
 # Default workspaces for common programs
 #
-# Workspace 1 - WeeChat
-assign [class="^weechat$"] $ws1
+# Workspace 1 - WeeChat and Telegram
+assign [title="^weechat$"] $ws1
+assign [title="^Telegram$"] $ws1
 # Workspace 2 - Email
-assign [app_id="^mutt$"] $ws2
+assign [title="^mutt$"] $ws2
 # Workspace 3 - Web
 assign [app_id="^firefox$"] $ws3
 # Workspace 4 - Terminal

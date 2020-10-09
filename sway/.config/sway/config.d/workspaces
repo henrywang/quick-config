@@ -42,7 +42,7 @@ bindsym $mod+comma workspace prev
 # $mod+period: Switch to next workspace 
 bindsym $mod+period workspace next
 # $mod+slash: Switch workspack back and forth 
-bindsym $mod+slash workspace back_and_forth
+bindsym $mod+Tab workspace back_and_forth
 
 # XF86 arrow keys
 bindsym XF86Back workspace prev

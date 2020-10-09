@@ -35,10 +35,10 @@ bindsym $mod+Shift+Right move right
 # Layout stuff:
 #
 
-# $mod+Tab: Toggle layout between tabbed and split 
-bindsym $mod+Tab layout toggle tabbed split
-# $mod+Shift+Tab: Toggle between vertical and horizontal split modes
-bindsym $mod+Shift+Tab split toggle
+# $mod+/: Toggle layout between tabbed and split 
+bindsym $mod+slash layout toggle tabbed split
+# $mod+Shift+/: Toggle between vertical and horizontal split modes
+bindsym $mod+Shift+slash split toggle
 
 # $mod+Shift+f: Make focused window fullscreen 
 bindsym $mod+Shift+f fullscreen

@@ -42,5 +42,8 @@ export WEECHAT_HOME="$XDG_CONFIG_HOME/weechat"
 export BEMENU_BACKEND="wayland"
 export BEMENU_RENDERER="/usr/lib64/bemenu/bemenu-renderer-wayland.so"
 
+# Telegram with wayland
+export QT_QPA_PLATFORM=wayland
+
 # Start sway on tty1 only
 [ "$(tty)" = "/dev/tty1" ] && ! pgrep -x sway >/dev/null && exec sway

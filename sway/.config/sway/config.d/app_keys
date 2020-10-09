@@ -7,7 +7,7 @@
 #
 
 # Application Launcher
-set $menu wofi --show drun -f -i --width 350
+bindsym $mod+x exec bemenu-run -i --fn "pango:Hack Nerd Font 13" -n --tf="#282828" --tb="#fabd2f" --ff="#ebdbb2" --fb="#3c3836" --hf="#fabd2f" --hb="#3c3836" --nf="#282828" --nb="#a89984" -m $(swaymsg -t get_outputs -r | jq -r '.[] | select(.active==true) | select(.focused==true) | .id') -p ">"
 # Application spawner
 set $spawn spawn
 
@@ -41,9 +41,9 @@ bindsym $mod+Space exec $menu
 # mod+f: Launch firefox
 bindsym $mod+f exec firefox-wayland
 # mod+m: Launch mutt
-bindsym $mod+m exec mutt
+bindsym $mod+m exec "alacritty -t mutt -e mutt"
 # mod+w: Launch weechat
-bindsym $mod+w exec weechat
+bindsym $mod+w exec "alacritty -t weechat -e weechat"
 # mod+t: Launch weechat
 bindsym $mod+t exec Telegram
 
@@ -60,7 +60,7 @@ bindsym $mod+Return exec alacritty
 
 # mod+v: Connect VPN
 bindsym $mod+v exec connect-vpn
-# mod+k: SSO login
-bindsym $mod+k exec my_kinit
+# mod+s: SSO login
+bindsym $mod+s exec my_kinit
 # mod+i: Connect WIFI
 bindsym $mod+i exec connect-wifi
