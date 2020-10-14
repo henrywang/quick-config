@@ -24,7 +24,7 @@ set $ws9 9
 set $wsX X
 
 # Disalbe Xwayland
-xwayland disable
+# xwayland disable
 
 # start sway-session.target
 exec systemctl --user start sway-session.target
