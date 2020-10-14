@@ -8,11 +8,12 @@
 
 # Lock after 5 min, displays off after 10 min, lock after suspend
 exec swayidle -w \
-    timeout 300 'swaylock-fancy' \
-    timeout 600 'swaymsg "output * dpms off"' \
+    timeout 600 'swaylock-fancy' \
+    timeout 1200 'swaymsg "output * dpms off"' \
     resume 'swaymsg "output * dpms on"' \
     before-sleep 'swaylock-fancy'
 
 # Inhibit Idle if a window is fullscreen
 for_window [class="^.*"] inhibit_idle fullscreen
 for_window [app_id="^.*"] inhibit_idle fullscreen
+for_window [title="^.*"] inhibit_idle fullscreen
