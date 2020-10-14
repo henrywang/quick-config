@@ -22,7 +22,7 @@ fi
 
 # this just refuses to rpm -i normally
 sudo dnf install -y cpio
-rpm2cpio ~xiaofwan/workspace/bluehat/workstation-ostree-config/local-rpms/redhat-internal-cert-install-0.1-15.el7.csb.noarch.rpm | sudo cpio -id --directory=/ --verbose "./etc/pki/*"
+rpm2cpio ~xiaofwan/Downloads/redhat-internal-cert-install-0.1-23.el7.csb.noarch.rpm | sudo cpio -id --directory=/ --verbose "./etc/pki/*"
 sudo update-ca-trust
 
 (cd /etc/yum.repos.d; sudo curl -O --location https://download.devel.redhat.com/rel-eng/RCMTOOLS/rcm-tools-fedora.repo; sudo curl -O --location https://beaker-project.org/yum/beaker-client-Fedora.repo)
@@ -100,6 +100,10 @@ sudo dnf clean packages
 # install nightly firefox for cockpit-composer test
 curl --location 'https://download.mozilla.org/?product=firefox-nightly-latest-ssl&os=linux64&lang=en-US' | \
     sudo tar -C /usr/local/lib/ -xj && sudo ln -s /usr/local/lib/firefox/firefox /usr/local/bin/
+
+# copy beaker keytab and configuration file
+sudo cp ~/xiaofwan/Documents/redhat/beaker/{jenkins.keytab,krb5.conf} /etc/
+sudo cp ~/xiaofwan/Documents/redhat/beaker/client.conf /etc/beaker/
 
 ## start X application inside toolbox, but open windows in host
 #cat <<EOF | sudo tee /etc/profile.d/custom.sh
