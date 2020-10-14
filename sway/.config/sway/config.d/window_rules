@@ -23,9 +23,8 @@ assign [app_id="mpv"] $ws7
 assign [title="VLC media player"] $ws7
 # Workspace 8 - Audio
 assign [app_id="(lollypop|mumble)"] $ws8
-# Workspace 9 - Images
-assign [app_id="gimp"] $ws9
-assign [title="GIMP Startup"] $ws9
+# Workspace 9 - Chromium
+assign [class="^Chromium-browser$"] $ws9
 
 # Auto float apps
 for_window [title="TigerVNC"] floating enable

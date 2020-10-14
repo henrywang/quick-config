@@ -40,6 +40,8 @@ bindsym $mod+Space exec $menu
 
 # mod+f: Launch firefox
 bindsym $mod+f exec firefox-wayland
+# mod+c: Launch chromium
+bindsym $mod+c exec chromium-browser
 # mod+m: Launch mutt
 bindsym $mod+m exec "alacritty -t mutt -e mutt"
 # mod+w: Launch weechat
